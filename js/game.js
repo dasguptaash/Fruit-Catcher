@@ -59,16 +59,15 @@ class Game{
       //add code to display the player's name on the respective basket.
       text(allPlayers[plr].name, x-25, y+25);
       
-      text("Player 1" + ":" + player1.score,40,40);
-      text("Player 2" + ":" + player2.score,40,70);                   
+      text("Player 1" + ":" + allPlayers.player1.score,50,50);
+      text("Player 2" + ":" + allPlayers.player2.score,50,90);                
      }
-     
-                      
+                         
          
     }
                 
+          
                 
-                 
 
      if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
          player.distance -= 10
@@ -103,18 +102,12 @@ class Game{
         for (var i = 0; i < fruitGroup.length; i++) {
              if (fruitGroup.get(i).isTouching(players)) {
              fruitGroup.get(i).destroy();
-                   
+             player.score += 1; 
+             player.update();        
                      
         } 
 
-        if(fruitGroup.get(i).isTouching(player1)){
-            player1.score += 1;
-        }
-
-        if(fruitGroup.get(i).isTouching(player2)){
-            player2.score += 1;
-        }
-                        
+                               
              }  
         }
                 
